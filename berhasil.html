@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berhasil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --accent-color: #388e3c;
+            --light-bg: #f0f8f0;
+            --light-green: #e8f5e9;
+            --text-dark: #1b5e20;
+            --shadow: 0 15px 30px rgba(46, 125, 50, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--light-green) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .message-box {
+            background: var(--light-green);
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.05);
+            animation: slideIn 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .message-box h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .message-box p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            animation: bounceIn 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .icon-circle {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+            animation: pulse 2s infinite;
+            transition: var(--transition);
+        }
+
+        .icon-circle:hover {
+            transform: rotate(10deg);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(46, 125, 50, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+            }
+        }
+
+        .next-steps {
+            background: #f1f8e9;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #c8e6c9;
+            animation: slideUp 0.6s ease-out 0.6s both;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .next-steps h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .next-steps ul {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .next-steps li {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .next-steps li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .footer {
+            background: var(--light-green);
+            padding: 20px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            border-top: 1px solid #c8e6c9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+            animation: fadeIn 0.8s ease-out 0.8s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Efek dekoratif */
+        .decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(46, 125, 50, 0.05);
+            z-index: 0;
+        }
+
+        .decoration-1 {
+            top: -50px;
+            right: -50px;
+        }
+
+        .decoration-2 {
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+        }
+
+        /* Leaf decoration */
+        .leaf {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(46, 125, 50, 0.2);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .leaf:hover {
+            color: rgba(46, 125, 50, 0.4);
+            transform: scale(1.1);
+        }
+
+        .leaf-1 {
+            top: 20px;
+            left: 30px;
+            transform: rotate(-30deg);
+        }
+
+        .leaf-2 {
+            bottom: 40px;
+            right: 40px;
+            transform: rotate(45deg);
+        }
+
+        /* Progress bar */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .message-box h2 {
+                font-size: 1.7rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .icon-circle {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .decoration, .leaf {
+                display: none;
+            }
+            
+            .next-steps ul {
+                padding-left: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.0rem;
+            }
+            
+            .message-box h2 {
+                font-size: 1.5rem;
+            }
+            
+            .message-box p {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .next-steps {
+                padding: 20px 15px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="leaf leaf-1">
+            <i class="fas fa-leaf"></i>
+        </div>
+        <div class="leaf leaf-2">
+            <i class="fas fa-leaf"></i>
+        </div>
+        
+        <div class="header">
+            <div class="logo">
+                <img src="https://madinatuddiniyahbabussalam.dayah.id/media/2021.09/logo-dyah21.png" alt="Logo Dayah">
+            </div>
+            <h1>Dayah Madinatuddiniyah Babussalam</h1>
+            <!-- <p>Pendidikan Islam Berbasis Tradisi</p> -->
+        </div>
+        
+        <div class="content">
+            <div class="message-box">
+                <h2>Terima Kasih!</h2>
+                <p>Data anda sudah kami terima.</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            
+            <div class="icon-container">
+                <div class="icon-circle">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            
+            <p>Pengajuan pembuatan surat aktif sudah berhasil.</p>
+            
+            <div class="next-steps">
+                <h3>Langkah Selanjutnya</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Cek email anda, dokumen telah dikirim ke email</li>
+                    <li><i class="fas fa-print"></i> Unduh dokumen dan cetak dengan ukuran A4 (210x197mm)</li>
+                    <li><i class="fas fa-pen"></i> Bawa dokumen yang telah di cetak ke pimpinan Dayah untuk di tanda tangani</li>
+                </ul>
+            </div>
+            
+            <a href="index.html" class="btn">Kembali ke Beranda</a>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Dayah Madinatuddiniyah Babussalam. Semua hak cipta dilindungi.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pembuatan Surat Aktif Santri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a5d1a;
+            --secondary-color: #d4af37;
+            --accent-color: #2e8b57;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f9f5 0%, #e8f4e8 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           background-image: url();
+            background-size: 150px;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo img {
+            max-width: 80px;
+            max-height: 80px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .form-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        label i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e1e8e1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: #f9fcf9;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+            background-color: white;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(26, 93, 26, 0.3);
+        }
+        
+        .submit-btn i {
+            margin-right: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 93, 26, 0.4);
+        }
+        
+        .islamic-pattern {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 28px;
+            color: var(--primary-color);
+            opacity: 0.7;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: var(--dark-color);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .form-section-title {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .form-section-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .input-error {
+            border-color: #e74c3c !important;
+        }
+        
+        .date-input-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .date-input-group input {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .date-input-group {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            input, select, textarea {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://madinatuddiniyahbabussalam.dayah.id/media/2021.09/logo-dyah21.png" alt="Logo Dayah">
+                </div>
+            </div>
+            <h1>Formulir Pembuatan Surat Aktif Santri</h1>
+            <p class="subtitle">Dayah Madinatuddiniyah Babussalam</p>
+        </header>
+        
+        <!-- <div class="islamic-pattern">﷽</div> -->
+        
+        <form class="form-container" id="suratForm">
+            <div class="form-section">
+                <h2 class="form-section-title"><i class="fas fa-envelope-circle-check"></i> Informasi Surat</h2>
+                
+                <div class="form-grid">
+                    <!-- Tahun Ajaran -->
+                    <div class="form-group">
+                        <label for="tahun_ajaran" class="required"><i class="fas fa-graduation-cap"></i> Tahun Ajaran</label>
+                        <select id="tahun_ajaran" name="entry.1655503255" required>
+                            <option value="">Pilih Tahun Ajaran</option>
+                            <option value="2023-2024">2023-2024</option>
+                            <option value="2024-2025">2024-2025</option>
+                            <option value="2025-2026">2025-2026</option>
+                            <option value="2026-2027">2026-2027</option>
+                            <option value="2028-2029">2028-2029</option>
+                            <option value="2030-2031">2030-2031</option>
+                            <option value="2031-2032">2031-2032</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Nomor Surat -->
+                    <div class="form-group">
+                        <label for="nomor_surat" class="required"><i class="fas fa-file-alt"></i> Nomor Surat</label>
+                        <input type="text" id="nomor_surat" placeholder="Nomor Surat Keluar" name="entry.1703573886" required>
+                        <div class="error-message" id="nomor_surat_error">Nomor surat harus berupa angka</div>
+                    </div>
+                    
+                    <!-- Tanggal Surat (Hidden) -->
+                    <input type="hidden" id="tanggal_surat" name="entry.769325689">
+                    
+                    <!-- Bulan Surat (Hidden) -->
+                    <input type="hidden" id="bulan_surat" name="entry.776109191">
+                    
+                    <!-- Tahun Surat (Hidden) -->
+                    <input type="hidden" id="tahun_surat" name="entry.1568272579">
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="form-section-title"><i class="fas fa-user"></i> Data Santri</h2>
+                
+                <div class="form-grid">
+                    <!-- Nama -->
+                    <div class="form-group">
+                        <label for="nama" class="required"><i class="fas fa-user-circle"></i> Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Nama Lengkap Santri" name="entry.484169491" required>
+                    </div>
+                    
+                    <!-- Jenis Kelamin -->
+                    <div class="form-group">
+                        <label for="jenis_kelamin" class="required"><i class="fas fa-venus-mars"></i> Jenis Kelamin</label>
+                        <select id="jenis_kelamin" name="entry.708027430" required>
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="Laki - Laki">Laki - Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Tempat Lahir -->
+                    <div class="form-group">
+                        <label for="tempat_lahir" class="required"><i class="fas fa-map-marker-alt"></i> Tempat Lahir</label>
+                        <input type="text" id="tempat_lahir" placeholder="Tempat Lahir" name="entry.1500284384" required>
+                    </div>
+                    
+                    <!-- Tanggal Lahir -->
+                    <div class="form-group">
+                        <label for="tanggal_lahir" class="required"><i class="fas fa-calendar-alt"></i> Tanggal Lahir</label>
+                        <div class="date-input-group">
+                            <input type="number" id="tanggal_lahir_hari" placeholder="Tanggal" min="1" max="31" required>
+                            <input type="number" id="tanggal_lahir_bulan" placeholder="Bulan" min="1" max="12" required>
+                            <input type="number" id="tanggal_lahir_tahun" placeholder="Tahun" min="1900" max="2023" required>
+                        </div>
+                        <input type="hidden" id="tanggal_lahir" name="entry.2003923032">
+                        <div class="error-message" id="tanggal_lahir_error">Format tanggal lahir harus dd mm yyyy (contoh: 05 08 2005)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <!-- <h2 class="form-section-title"><i class="fas fa-school"></i> Data Santri</h2> -->
+                
+                <div class="form-grid">
+                    <!-- NIS -->
+                    <div class="form-group">
+                        <label for="nis" class="required"><i class="fas fa-id-card"></i> Nomor Induk Santri (NIS)</label>
+                        <input type="number" id="nis" placeholder="Nomor Induk Santri (NIS)" name="entry.171619361" required>
+                    </div>
+                    
+                    <!-- Kelas -->
+                    <div class="form-group">
+                        <label for="kelas" class="required"><i class="fas fa-chalkboard-teacher"></i> Kelas</label>
+                        <select id="kelas" name="entry.2122189992" required>
+                            <option value="">Pilih Kelas</option>
+                            <option value="1 (Satu)">1 (Satu)</option>
+                            <option value="2 (Dua)">2 (Dua)</option>
+                            <option value="3 (Tiga)">3 (Tiga)</option>
+                            <option value="4 (Empat)">4 (Empat)</option>
+                            <option value="5 (Lima)">5 (Lima)</option>
+                            <option value="6 (Enam)">6 (Enam)</option>
+                            <option value="7 (Tujuh)">7 (Tujuh)</option>
+                            <option value="8 (Delapan)">8 (Delapan)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alamat -->
+            <div class="form-group full-width">
+                <label for="alamat" class="required"><i class="fas fa-home"></i> Alamat</label>
+                <textarea id="alamat" name="entry.605129489" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i>Kirim</button>
+        </form>
+<!--         
+        <div class="islamic-pattern">ﷺ</div> -->
+        
+        <footer>
+            <p>Dayah Madinatuddiniyah Babussalam &copy; 2023</p>
+        </footer>
+    </div>
+
+    <script>
+        // Fungsi untuk mengisi tanggal, bulan, dan tahun surat secara otomatis
+        function setTanggalBulanTahunSurat() {
+            const now = new Date();
+            
+            // Set timezone ke Jakarta (GMT+7)
+            const jakartaTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Jakarta"}));
+            
+            // Format untuk tanggal surat (dd mmmm yyyy)
+            const optionsTanggal = { 
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric'
+            };
+            const formatterTanggal = new Intl.DateTimeFormat('id-ID', optionsTanggal);
+            const formattedTanggal = formatterTanggal.format(jakartaTime);
+            document.getElementById('tanggal_surat').value = formattedTanggal;
+            
+            // Format untuk bulan surat (MM)
+            const bulan = String(jakartaTime.getMonth() + 1).padStart(2, '0');
+            document.getElementById('bulan_surat').value = bulan;
+            
+            // Format untuk tahun surat (yyyy)
+            const tahun = jakartaTime.getFullYear();
+            document.getElementById('tahun_surat').value = tahun;
+        }
+        
+        // Validasi nomor surat hanya angka
+        function validateNomorSurat() {
+            const nomorSurat = document.getElementById('nomor_surat').value;
+            const nomorSuratError = document.getElementById('nomor_surat_error');
+            
+            // Hanya angka yang diperbolehkan
+            if (nomorSurat && !/^\d+$/.test(nomorSurat)) {
+                document.getElementById('nomor_surat').classList.add('input-error');
+                nomorSuratError.style.display = 'block';
+                return false;
+            } else {
+                document.getElementById('nomor_surat').classList.remove('input-error');
+                nomorSuratError.style.display = 'none';
+                return true;
+            }
+        }
+        
+        // Format tanggal lahir menjadi dd mm yyyy
+        function formatTanggalLahir() {
+            const hari = document.getElementById('tanggal_lahir_hari').value.padStart(2, '0');
+            const bulan = document.getElementById('tanggal_lahir_bulan').value.padStart(2, '0');
+            const tahun = document.getElementById('tanggal_lahir_tahun').value;
+            
+            if (hari && bulan && tahun) {
+                document.getElementById('tanggal_lahir').value = `${hari} ${bulan} ${tahun}`;
+            }
+        }
+        
+        // Validasi tanggal lahir
+        function validateTanggalLahir() {
+            const hari = document.getElementById('tanggal_lahir_hari').value;
+            const bulan = document.getElementById('tanggal_lahir_bulan').value;
+            const tahun = document.getElementById('tanggal_lahir_tahun').value;
+            const tanggalLahirError = document.getElementById('tanggal_lahir_error');
+            
+            let isValid = true;
+            
+            // Reset error styling
+            document.getElementById('tanggal_lahir_hari').classList.remove('input-error');
+            document.getElementById('tanggal_lahir_bulan').classList.remove('input-error');
+            document.getElementById('tanggal_lahir_tahun').classList.remove('input-error');
+            
+            // Validasi hari
+            if (hari && (hari < 1 || hari > 31)) {
+                document.getElementById('tanggal_lahir_hari').classList.add('input-error');
+                isValid = false;
+            }
+            
+            // Validasi bulan
+            if (bulan && (bulan < 1 || bulan > 12)) {
+                document.getElementById('tanggal_lahir_bulan').classList.add('input-error');
+                isValid = false;
+            }
+            
+            // Validasi tahun
+            if (tahun && (tahun < 1900 || tahun > 2023)) {
+                document.getElementById('tanggal_lahir_tahun').classList.add('input-error');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                tanggalLahirError.style.display = 'block';
+            } else {
+                tanggalLahirError.style.display = 'none';
+            }
+            
+            return isValid;
+        }
+        
+        // Event listener untuk validasi nomor surat
+        document.getElementById('nomor_surat').addEventListener('input', validateNomorSurat);
+        document.getElementById('nomor_surat').addEventListener('blur', validateNomorSurat);
+        
+        // Event listener untuk input tanggal lahir
+        document.getElementById('tanggal_lahir_hari').addEventListener('input', function() {
+            formatTanggalLahir();
+            validateTanggalLahir();
+        });
+        
+        document.getElementById('tanggal_lahir_bulan').addEventListener('input', function() {
+            formatTanggalLahir();
+            validateTanggalLahir();
+        });
+        
+        document.getElementById('tanggal_lahir_tahun').addEventListener('input', function() {
+            formatTanggalLahir();
+            validateTanggalLahir();
+        });
+        
+        // Validasi form
+        document.getElementById('suratForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Validasi tambahan untuk memastikan semua field terisi
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#e1e8e1';
+                }
+            });
+            
+            // Validasi nomor surat
+            if (!validateNomorSurat()) {
+                isValid = false;
+            }
+            
+            // Validasi tanggal lahir
+            if (!validateTanggalLahir()) {
+                isValid = false;
+            }
+            
+            // Validasi apakah semua bagian tanggal lahir terisi
+            const hari = document.getElementById('tanggal_lahir_hari').value;
+            const bulan = document.getElementById('tanggal_lahir_bulan').value;
+            const tahun = document.getElementById('tanggal_lahir_tahun').value;
+            
+            if (!hari || !bulan || !tahun) {
+                isValid = false;
+                document.getElementById('tanggal_lahir_hari').style.borderColor = '#e74c3c';
+                document.getElementById('tanggal_lahir_bulan').style.borderColor = '#e74c3c';
+                document.getElementById('tanggal_lahir_tahun').style.borderColor = '#e74c3c';
+            }
+            
+            if (!isValid) {
+                alert('Harap lengkapi semua field yang wajib diisi dengan benar!');
+                return;
+            }
+            
+            // Format tanggal lahir sebelum submit
+            formatTanggalLahir();
+            
+            // Kirim data ke Google Forms
+            const formData = new FormData(this);
+            const url = 'https://docs.google.com/forms/d/e/1FAIpQLSc_yAA2HP_2y4AtctlB0TsmboGirinx0iz-yJLSs2Zmu5An_A/formResponse?' + 
+                        new URLSearchParams(formData).toString();
+            
+            // Kirim data menggunakan fetch (mengabaikan CORS untuk pengalaman pengguna yang lebih baik)
+            fetch(url, {
+                method: 'GET',
+                mode: 'no-cors'
+            }).then(() => {
+                // Redirect ke halaman berhasil
+                window.location.href = '/berhasil.html';
+            }).catch(() => {
+                // Tetap redirect meskipun ada error (karena no-cors tidak mengembalikan response)
+                window.location.href = '/berhasil.html';
+            });
+        });
+        
+        // Panggil fungsi saat halaman dimuat
+        window.onload = setTanggalBulanTahunSurat;
+    </script>
+</body>
+</html>
